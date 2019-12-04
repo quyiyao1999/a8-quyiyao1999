@@ -14,7 +14,7 @@ import java.lang.Object;
 	3. To play the game, either set manually, or click "random" and the click "run" or "step"
 	4. If you click "run" first and then want the program to go step by step, click "stop" first and then click "step"
 */
-public class GOLMainFrame extends javax.swing.JFrame {
+public class GameOfLife extends JFrame {
 
     private JButton buttonRun;
     private JButton buttonSave;
@@ -37,7 +37,7 @@ public class GOLMainFrame extends javax.swing.JFrame {
    
     private GOLModel model;
     
-    public GOLMainFrame() {  
+    public GameOfLife() {  
     	model = new GOLModel(15, 15, 500, 2, 3, 3, 3);
     
     	this.setSize(400,400);
@@ -143,7 +143,7 @@ public class GOLMainFrame extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {                
-                new GOLMainFrame().setVisible(true);
+                new GameOfLife().setVisible(true);
             }
         });
     }

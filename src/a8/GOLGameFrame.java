@@ -12,9 +12,9 @@ public class GOLGameFrame extends JFrame implements Runnable {
     private boolean isTorus = false;
     protected JButton buttonRun;
     protected JButton buttonstep;
+    protected JButton buttonRandom;
     protected JButton buttonTorus;
-    private JLabel labelStep;
-   
+    protected JButton buttonClear;
     
     public GOLGameFrame(GOLModel m) {
         super();
@@ -26,8 +26,7 @@ public class GOLGameFrame extends JFrame implements Runnable {
         JPanel panel = new JPanel();
         panel.setBackground(Color.BLUE);
        
-        buttonRun = new JButton("Run"); 
-        
+        buttonRun = new JButton("Run");         
         buttonRun.addActionListener( new ActionListener() {
         	public void actionPerformed( ActionEvent e) {
         		if(isRun) {
@@ -37,20 +36,17 @@ public class GOLGameFrame extends JFrame implements Runnable {
     			}
         	} 
         });
-        
         panel.add(buttonRun);
         
         buttonstep = new JButton("step"); 
-        
         buttonstep.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		step();
     		}
         });
-        
         panel.add(buttonstep);
         
-        JButton buttonRandom = new JButton("Random");
+        buttonRandom = new JButton("Random");
         buttonRandom.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		setRandom();
@@ -59,15 +55,14 @@ public class GOLGameFrame extends JFrame implements Runnable {
         panel.add(buttonRandom);
         
         buttonTorus = new JButton("torusOFF");
-        buttonTorus.addActionListener( new ActionListener() {
-            public void actionPerformed( ActionEvent e) {
+        buttonTorus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
             	isTorus();
             }
         }); 
         panel.add(buttonTorus);
 
-
-        JButton buttonClear = new JButton("Clear");
+        buttonClear = new JButton("Clear");
         buttonClear.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {              
         		stopGame();
@@ -76,9 +71,6 @@ public class GOLGameFrame extends JFrame implements Runnable {
         	}
         });
         panel.add(buttonClear);
-        
-        labelStep = new JLabel("  step ");
-        panel.add(labelStep);
         
         getContentPane().add(BorderLayout.NORTH, panel);
         
@@ -128,8 +120,8 @@ public class GOLGameFrame extends JFrame implements Runnable {
         while(isRun) {          
             try {
                 model.stepLife();
-                grid.repaint();             
-                labelStep.setText("  step " + model.getSteps());
+                grid.repaint();          
+                
                 Thread.sleep(model.getDelay());
                 if(model.getChange() == false) {
                     this.stopGame();
@@ -142,10 +134,8 @@ public class GOLGameFrame extends JFrame implements Runnable {
        else if (isTorus) {
     	   while(isRun) {          
                try {
-                   model.stepLifeTorus();
-                   
+                   model.stepLifeTorus();                 
                    grid.repaint();             
-                   labelStep.setText("  step " + model.getSteps());
                    
                    Thread.sleep(model.getDelay());
                    if(model.getChange() == false) {

@@ -270,10 +270,6 @@ public class GOLModel extends java.util.Observable implements java.io.Serializab
         return isChange;
     }
     
-    public int getSteps() {
-        return countSteps;
-    }
-    
     public boolean equals(boolean[][] array1, boolean[][] array2) {
         for (int i = 0; i < this.col; i++) {
             for (int j = 0; j < this.row; j++) {
