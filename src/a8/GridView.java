@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package a8;
 
 import javax.swing.*;
@@ -19,25 +15,21 @@ public class GridView extends GOLView {
 
     public GridView(GOLModel model) {
         super(model);        
-        updateDisplay();
-        
+        updateDisplay();     
        
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
               
             	int i = e.getPoint().x / SIZE;
-                int j = e.getPoint().y / SIZE;
-               
+                int j = e.getPoint().y / SIZE;  
             
                 j = (e.getPoint().y - j)/ SIZE;
                 i = (e.getPoint().x - i)/ SIZE;
-             
                 
                 getModel().changeCell(i, j);
                 
                 repaint();
-
             }
 
             @Override

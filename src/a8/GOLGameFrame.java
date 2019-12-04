@@ -1,11 +1,9 @@
-
 package a8;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
-
 
 public class GOLGameFrame extends JFrame implements Runnable {
     private GOLModel model;

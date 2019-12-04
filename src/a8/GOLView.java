@@ -31,7 +31,6 @@ public abstract class GOLView extends JPanel implements Observer {
     protected abstract void updateDisplay();
     
     @Override
-    
     public void update(Observable observable, Object object) {
         updateDisplay();
     }
