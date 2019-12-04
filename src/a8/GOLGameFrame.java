@@ -18,7 +18,6 @@ public class GOLGameFrame extends JFrame implements Runnable {
     private JLabel labelStep;
    
     
-    
     public GOLGameFrame(GOLModel m) {
         super();
         this.model = m;

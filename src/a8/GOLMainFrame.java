@@ -38,7 +38,7 @@ public class GOLMainFrame extends javax.swing.JFrame {
     private GOLModel model;
     
     public GOLMainFrame() {  
-    	model = new GOLModel(15, 15, 500);
+    	model = new GOLModel(15, 15, 500, 2, 3, 3, 3);
     
     	this.setSize(400,400);
     	buttonRun = new JButton("Run");
@@ -137,7 +137,7 @@ public class GOLMainFrame extends javax.swing.JFrame {
     }
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {
-            model.setOption( this.getCol(), this.getRow(), this.getDelay());            
+            model.setCustomedNum(this.getCol(), this.getRow(), this.getDelay(), this.getLowBirth(), this.getLowSurvive(), this.getHighBirth(), this.getHighSurvive());            
     }
  
     public static void main(String args[]) {
@@ -159,4 +159,21 @@ public class GOLMainFrame extends javax.swing.JFrame {
     public int getDelay() {
         return Integer.parseInt(textDelay.getText());
     }
+    
+    public int getLowBirth() {        
+        return Integer.parseInt(textLowBirth.getText());
+    }
+    
+    public int getLowSurvive() {
+        return Integer.parseInt(textLowSurvive.getText());
+    }
+    
+    public int getHighBirth() {
+        return Integer.parseInt(textHighBirth.getText());
+    }
+    
+    public int getHighSurvive() {        
+        return Integer.parseInt(textHighSurvive.getText());
+    }
+    
 }
